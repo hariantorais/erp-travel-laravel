@@ -90,16 +90,6 @@ Pastikan seluruh unit testing logistik dan proteksi validasi berstatus PASS sebe
 
 Bash
 php artisan test
-🔒 Hak Akses & Keamanan Sesi (RBAC)
-Sistem ini menggunakan kontrol keamanan berbasis peran (Role-Based Access Control) untuk melindungi integritas data multi-cabang:
-
-super_admin: Akses mutlak seluruh sistem, kantor cabang, audit finansial global, dan profil korporat.
-
-operasional_staff: Akses khusus pengelolaan logistik rute penerbangan, manifes keberangkatan kloter, penataan kamar hotel, dan manifes bus.
-
-sales_agent: Terkunci hanya pada modul registrasi jemaah baru, input berkas visa, dan penagihan invoice pembayaran.
-
-🚀 Elijabah Travel ERP — Ketaatan pada PRD, Kecepatan pada Performa.
 
 ### 4. Jalankan Automated Testing (Pest Suite)
 Pastikan seluruh unit testing logistik dan proteksi validasi berstatus **PASS** sebelum melakukan push atau merge ke branch utama:
@@ -107,12 +97,6 @@ Pastikan seluruh unit testing logistik dan proteksi validasi berstatus **PASS** 
 ```bash
 php artisan test
 
----
-
-### Poin 5: Judul Bagian RBAC
-Salin teks di bawah ini tepat di bawah Poin 4:
-
-```markdown
 ---
 
 ## 🔒 Hak Akses & Keamanan Sesi (RBAC)
