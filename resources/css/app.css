@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+   --animate-slide-in-right: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+   --animate-fade-out-down: fadeOutDown 0.3s ease-in forwards;
+
+   @keyframes slideInRight {
+      from {
+         transform: translateX(100%) scale(0.9);
+         opacity: 0;
+      }
+
+      to {
+         transform: translateX(0) scale(1);
+         opacity: 1;
+      }
+   }
+
+   @keyframes fadeOutDown {
+      from {
+         transform: translateY(0) scale(1);
+         opacity: 1;
+      }
+
+      to {
+         transform: translateY(10px) scale(0.95);
+         opacity: 0;
+      }
+   }
+
+     
+}
+
+ /* Menghaluskan scrollbar internal modal */
+ .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+ }
+
+ .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+ }
+
+ .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    /* slate-300 */
+    border-radius: 20px;
+ }
+
+ .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+    /* slate-400 */
+ }
