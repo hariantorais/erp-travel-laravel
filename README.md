@@ -8,8 +8,8 @@ Sistem ini dirancang dengan arsitektur **Service-Layer murni** menggunakan **SQL
 
 ## 🚀 Spesifikasi & Tech Stack Utama
 
-- **Core Framework:** Laravel 11 / 12
-- **Frontend Engine:** Livewire Volt v3 _(Pola Fungsional / Ramping)_
+- **Core Framework:** Laravel 13
+- **Frontend Engine:** Livewire Volt v4 _(Pola Fungsional / Ramping)_
 - **UI System:** Flux UI Components & Tailwind CSS v4.0
 - **Reactive State:** Alpine.js _(Bawaan Livewire)_
 - **Database Layer:** MySQL / MariaDB _(Produksi)_, SQLite In-Memory _(Testing)_
