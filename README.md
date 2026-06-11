@@ -1,58 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ERP - Enterprise Resource Planning untuk Biro Umroh & Haji Plus
+Elijabah Travel ERP adalah platform internal terpusat (Multi-Tenant Intern) berkinerja tinggi yang dirancang untuk mengotomatisasi seluruh ekosistem operasional travel Umroh dan Haji Plus. Platform ini mengintegrasikan fondasi administrasi multi-cabang, manajemen produk, logistik manifes di Arab Saudi, CRM jemaah, hingga sistem akuntansi keuangan kas masuk/keluar secara real-time.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem ini dirancang dengan arsitektur Service-Layer murni menggunakan SQL murni via DB Facade (Query Builder) untuk memangkas overhead ORM, memastikan kecepatan eksekusi data tetap stabil pada saat menangani ribuan manifes jemaah secara simultan.
 
-## About Laravel
+🚀 Spesifikasi & Tech Stack Utama
+Core Framework: Laravel 11 / 12
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Frontend Engine: Livewire Volt v3 (Pola Fungsional / Ramping)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+UI System: Flux UI Components & Tailwind CSS v4.0
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Reactive State: Alpine.js (Bawaan Livewire)
 
-## Learning Laravel
+Database Layer: MySQL / MariaDB (Produksi), SQLite In-Memory (Testing)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Testing Suite: Pest PHP Suite
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+📂 Cakupan Modul & Fitur (PRD Compliance)
+Sistem ini dibagi menjadi 4 core modul utama yang saling terintegrasi:
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+🏢 M1: Administrasi & Fondasi Core ERP
+Kantor Cabang: Pengaturan multi-cabang pembantu, manajemen pimpinan cabang, dan restriksi data wilayah.
 
-## Agentic Development
+Profil Perusahaan: Tata kelola legalitas hukum, manajemen tenant tunggal, dan konfigurasi berkas legal korporat.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Dashboard Analytics: Ringkasan statistik kuota keberangkatan, total booking aktif, dan grafik arus kas bulanan.
 
-```bash
-composer require laravel/boost --dev
+✈️ M2: Tata Kelola Produk, Manifes Maskapai & Logistik Kamar
+Katalog Paket Umroh (M2.1): Pembuatan brosur acuan awal standar maskapai, tipe paket (Umroh, Haji, Tour), spesifikasi hotel default, dan durasi hari.
 
-php artisan boost:install
-```
+Master Vendor & Penerbangan (M2.1): Pemisahan data entitas antara induk Perusahaan Maskapai (airlines) dengan nomor rute penerbangan komersial (flights) berbasis kode IATA 3 huruf.
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Logistik Keberangkatan (M2.3): Workspace plotting manifes pesawat riil (departure_flights) dan alokasi blok kamar hotel (departure_hotels) per kloter fisik.
 
-## Contributing
+Saudi Logistics: Manajemen inventaris mitra Hotel Arab Saudi dan Vendor Armada Bus di Makkah & Madinah.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+👥 M3: Operasional Registrasi & Manajemen CRM Jemaah
+Booking Engine: Pendaftaran jemaah mandiri atau rombongan, pemilihan tipe kamar (Quad, Triple, Double), dan kalkulasi otomatis harga paket.
 
-## Code of Conduct
+Pemberkasan & Visa: Tracking paspor, rekam medik, status kuning vaksin, dan integrasi pelaporan Siskopatuh.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Manifest & Handling: Pengelompokan bus jemaah, pembagian grup pimpinan Tour Leader, dan pencetakan manifes keberangkatan bandara.
 
-## Security Vulnerabilities
+💰 M4: Akuntansi Keuangan & Pembukuan Kas
+Invoice & Pembayaran: Generator invoice otomatis per jemaah/grup, pencatatan termin pembayaran (DP s.d Lunas), dan integrasi kwitansi.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Biaya Operasional (Expenses): Pencatatan pengeluaran riil di lapangan (pembelian tiket grup, pembayaran sisa hotel Saudi, perlengkapan umroh).
 
-## License
+Laporan Keuangan: Laporan laba-rugi kotor per kloter keberangkatan, arus kas (Cash Flow), dan rekap piutang jemaah.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+🎨 Standar Pola Desain Komponen (Volt Architecture)
+Untuk menjaga kode tetap ramping dan modular, seluruh manajemen master data (CRUD) wajib dipisahkan menjadi komponen yang terisolasi:
+
+Index Component (index.blade.php): Hanya mengelola tampilan tabel data, pencarian didebounce, paginasi, tombol hapus, dan pemanggilan modal.
+
+Form Component (form.blade.php): Menangani logika manipulasi data (Create/Update) di dalam modal pop-up dan melempar sinyal reaktif via $this->dispatch('entity-updated').
+
+Form Object Class (Form.php): Mengisolasi properti state input data, pengisian data edit dari database (setEntity), dan aturan validasi (rules()).
+
+Struktur Direktori Komponen:
+
+app/Livewire/Forms/Master/ [Tempat Form Object Utility]
+
+app/Services/Master/ [Tempat Logistik & Bisnis Query Builder]
+
+resources/views/livewire/admin/ [Tempat View Blade Volt]
+
+🛠️ Langkah Instalasi Pengembangan Lokal
+
+1. Kloning Repositori & Install Dependensi
+   git clone https://github.com/hariantorais/erp-travel-laravel.git
+
+cd erp-travel-laravel
+
+composer install
+
+npm install && npm run dev
+
+2. Konfigurasi Environment File
+   Salin file .env.example menjadi .env dan sesuaikan koneksi database lokal Anda:
+
+DB_CONNECTION=mysql
+
+DB_HOST=127.0.0.1
+
+DB_PORT=3306
+
+DB_DATABASE=elijabah_travel_erp
+
+DB_USERNAME=root
+
+DB_PASSWORD=
+
+3. Eksekusi Migrasi & Database Seeder
+   php artisan key:generate
+
+php artisan migrate --seed
+
+4. Jalankan Automated Testing (Pest Suite)
+   Pastikan seluruh unit testing logistik dan proteksi validasi berstatus PASS sebelum melakukan push/merge ke branch utama:
+
+php artisan test
+
+🔒 Hak Akses & Keamanan Sesi (RBAC)
+Sistem ini menggunakan kontrol keamanan berbasis peran (Role-Based Access Control) untuk melindungi integritas data multi-cabang:
+
+super_admin: Akses mutlak seluruh sistem, kantor cabang, audit finansial global, dan profil korporat.
+
+operasional_staff: Akses khusus pengelolaan logistik rute penerbangan, manifes keberangkatan kloter, penataan kamar hotel, dan manifes bus.
+
+sales_agent: Terkunci hanya pada modul registrasi jemaah baru, input berkas visa, dan penagihan invoice pembayaran.
+
+Elijabah Travel ERP — Ketaatan pada PRD, Kecepatan pada Performa.
