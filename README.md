@@ -62,51 +62,49 @@ Untuk menjaga kode tetap ramping dan modular, seluruh manajemen master data (CRU
 
 ### 1. Kloning Repositori & Install Dependensi
 
-````bash
+```bash
 git clone [https://github.com/hariantorais/erp-travel-laravel.git](https://github.com/hariantorais/erp-travel-laravel.git)
 cd erp-travel-laravel
 composer install
 npm install && npm run dev
+```
 
 ### 2. Konfigurasi Environment File
+
 Salin file `.env.example` menjadi `.env` dan sesuaikan koneksi database lokal Anda:
 
-```env
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=elijabah_travel_erp
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
-3. Eksekusi Migrasi & Database Seeder
+### 3. Eksekusi Migrasi & Database Seeder
+
 Jalankan perintah ini di terminal untuk membuat kunci aplikasi dan menyuntikkan data master awal:
 
-Bash
+```Bash
 php artisan key:generate
 php artisan migrate --seed
-4. Jalankan Automated Testing (Pest Suite)
-Pastikan seluruh unit testing logistik dan proteksi validasi berstatus PASS sebelum melakukan push atau merge ke branch utama:
-
-Bash
-php artisan test
+```
 
 ### 4. Jalankan Automated Testing (Pest Suite)
-Pastikan seluruh unit testing logistik dan proteksi validasi berstatus **PASS** sebelum melakukan push atau merge ke branch utama:
 
-```bash
+Pastikan seluruh unit testing logistik dan proteksi validasi berstatus PASS sebelum melakukan push atau merge ke branch utama:
+
+```Bash
 php artisan test
-
----
+```
 
 ## 🔒 Hak Akses & Keamanan Sesi (RBAC)
 
-Sistem ini menggunakan kontrol keamanan berbasis peran (*Role-Based Access Control*) untuk melindungi integritas data multi-cabang:
+Sistem ini menggunakan kontrol keamanan berbasis peran (_Role-Based Access Control_) untuk melindungi integritas data multi-cabang:
 
-* **`super_admin`**: Akses mutlak seluruh sistem, kantor cabang, audit finansial global, dan profil korporat.
-* **`operasional_staff`**: Akses khusus pengelolaan logistik rute penerbangan, manifes keberangkatan kloter, penataan kamar hotel, dan manifes bus.
-* **`sales_agent`**: Terkunci hanya pada modul registrasi jemaah baru, input berkas visa, dan penagihan invoice pembayaran.
+- **`super_admin`**: Akses mutlak seluruh sistem, kantor cabang, audit finansial global, dan profil korporat.
+- **`operasional_staff`**: Akses khusus pengelolaan logistik rute penerbangan, manifes keberangkatan kloter, penataan kamar hotel, dan manifes bus.
+- **`sales_agent`**: Terkunci hanya pada modul registrasi jemaah baru, input berkas visa, dan penagihan invoice pembayaran.
 
----
-🚀 **Elijabah Travel ERP** — *Ketaatan pada PRD, Kecepatan pada Performa.*
-````
+🚀 **Elijabah Travel ERP** — _Ketaatan pada PRD, Kecepatan pada Performa._
