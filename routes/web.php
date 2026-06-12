@@ -41,8 +41,8 @@ Route::middleware(['auth', 'role:super_admin'])->group(function () {
         Volt::route('/airlines', 'admin.airlines.index')->name('airlines.index');
 
         // Modul Logistik Kamar Hotel & Kendaraan Bus Arab Saudi
-        Volt::route('/saudi-hotels', 'admin.saudi-logistics.hotels')->name('saudi-hotels.index');
-        Volt::route('/saudi-buses', 'admin.saudi-logistics.buses')->name('saudi-buses.index');
+        Volt::route('/hotels', 'admin.hotels.index')->name('hotels.index');
+        Volt::route('/buses', 'admin.buses.index')->name('buses.index');
 
         // M3: Operasional Registrasi & Manajemen CRM Jemaah
         Volt::route('/bookings', 'admin.bookings.index')->name('bookings.index');

@@ -71,8 +71,8 @@ if (!function_exists('navigations')) {
                // Kunci 'route' dan 'role' tertulis rapi 100%
                ['title' => 'Daftar Maskapai', 'route' => 'admin.airlines.index', 'role' => null],
                ['title' => 'Rute Penerbangan', 'route' => 'admin.flights.index', 'role' => null],
-               ['title' => 'Hotel Arab Saudi', 'route' => 'admin.saudi-hotels.index', 'role' => null],
-               ['title' => 'Armada Bus Saudi', 'route' => 'admin.saudi-buses.index', 'role' => null],
+               ['title' => 'Hotel Arab Saudi', 'route' => 'admin.hotels.index', 'role' => null],
+               ['title' => 'Armada Bus Saudi', 'route' => 'admin.buses.index', 'role' => null],
             ],
          ],
          [

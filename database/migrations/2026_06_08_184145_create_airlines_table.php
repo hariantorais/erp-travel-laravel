@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->char('uuid', 36)->unique();
             $table->string('name', 255);
-            $table->string('code', 10)->unique(); // E.g. SV, GA, EK
+            $table->string('code', 10)->unique();
             $table->string('logo_url', 255)->nullable();
             $table->timestamps();
             $table->softDeletes();

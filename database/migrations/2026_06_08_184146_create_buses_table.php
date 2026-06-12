@@ -9,9 +9,9 @@ return new class extends Migration {
     {
         Schema::create('buses', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 20)->unique()->comment('BUS01, VIP01');
-            $table->string('name')->comment('Bus Pariwisata Hiba Utama');
-            $table->string('plate_number', 20)->nullable()->comment('B 1234 XYZ');
+            $table->string('code', 20)->unique();
+            $table->string('name');
+            $table->string('plate_number', 20)->nullable();
             $table->unsignedSmallInteger('capacity')->default(45);
             $table->string('vendor_name')->nullable();
             $table->string('driver_name')->nullable();
